@@ -10,5 +10,5 @@ Once installed NodeJs you can download this project and run the following comman
 - ```npm install ``` To install all node dependencies
 - ```node app ``` To run application
 
-And you can use it:
+And you can use it:\
 ![preview](preview.png)
