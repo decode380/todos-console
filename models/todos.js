@@ -28,7 +28,7 @@ export class Todos{
       const todo = this._todosMap[e];
       if (ids.includes(todo.id)){
         if (!todo.completedIn) {
-          todo.completedIn = new Date();
+          todo.completedIn = new Date().getTime();
         }
       }
       else{
@@ -58,9 +58,11 @@ export class Todos{
     .forEach((e, i) => {
       const index = `${i+1}.`.green;
       const { desc ,completedIn } = e;
-      const dateToLocale =
-         new Date(completedIn).toLocaleDateString('es-CO', {hour: "2-digit", minute: "2-digit"})
-      const outputText =  `${index} ${desc} :: ${dateToLocale}`;
+      const completedDate = new Date(completedIn);
+      const dateToLocale = 
+          `${completedDate.toLocaleDateString()} ${completedDate.toLocaleTimeString()}`;
+         
+      const outputText =  `${index} ${desc} :: ${dateToLocale.green}`;
 
       if (filter(e)) {
         console.log(outputText);
